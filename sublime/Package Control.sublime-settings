@@ -27,8 +27,11 @@
 		"Dockerfile Syntax Highlighting",
 		"Groovy Snippets",
 		"Kotlin",
+		"Kubernetes Manifest autocomplete",
+		"Maven",
 		"Package Control",
 		"Pretty JSON",
-		"Pretty YAML"
+		"Pretty YAML",
+		"Terraform"
 	]
 }

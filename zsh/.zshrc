@@ -70,7 +70,7 @@ DEFAULT_USER="$(whoami)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime kubectl zsh-autosuggestions)
+plugins=(git sublime kubectl zsh-autosuggestions terraform)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +102,8 @@ source $ZSH/oh-my-zsh.sh
 
 # pyenv init
 eval "$(pyenv init -)"
+
+# nvm configuration
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
