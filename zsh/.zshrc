@@ -74,6 +74,13 @@ plugins=(git sublime kubectl zsh-autosuggestions terraform)
 
 source $ZSH/oh-my-zsh.sh
 
+# Allianz related configurations
+export PATH=$PATH:~/bin
+export PERL5LIB=`git --info-path | sed -e 's/\/info$/\/perl5/'`
+alias ghe-refresh="adp-2fa c --global \
+                             --offline_token /Users/onuryilmaz/.git/adp-secrets/offline.token \
+                             --access_token /Users/onuryilmaz/.git/adp-secrets/access.token"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -100,10 +107,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# pyenv init
+# Jocast alias
+alias jocasta="java -jar ~/Desktop/Deepnetwork/jocasta-cli.jar"
+
+# pyenv configuration
 eval "$(pyenv init -)"
 
 # nvm configuration
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
