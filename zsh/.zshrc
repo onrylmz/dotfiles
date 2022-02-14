@@ -70,16 +70,17 @@ DEFAULT_USER="$(whoami)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime kubectl zsh-autosuggestions terraform)
+plugins=(git sublime kubectl zsh-autosuggestions terraform z)
 
 source $ZSH/oh-my-zsh.sh
 
-# Allianz related configurations
+# work related configurations
 export PATH=$PATH:~/bin
 export PERL5LIB=`git --info-path | sed -e 's/\/info$/\/perl5/'`
 alias ghe-refresh="adp-2fa c --global \
                              --offline_token /Users/onuryilmaz/.git/adp-secrets/offline.token \
                              --access_token /Users/onuryilmaz/.git/adp-secrets/access.token"
+alias azure-cli-dsp-central='docker run --rm -it -v $(pwd):/work --workdir /work -v azure-dsp-central:/root --cap-add=NET_ADMIN --cap-add=NET_RAW -e SUBSCRIPTION_ALIAS=dsp-central -e SUBSCRIPTION_NAME=dsp1-westeurope-prod -e SUBSCRIPTION_ID=8b209b2d-9ad2-4a18-8709-e255b23a7a94 -e HISTSIZE=5000 allianz/azure-cli'
 
 # User configuration
 
@@ -107,8 +108,10 @@ alias ghe-refresh="adp-2fa c --global \
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Jocast alias
+# Jocasta alias
 alias jocasta="java -jar ~/Desktop/Deepnetwork/jocasta-cli.jar"
+alias lhdev="kubectx haudigdevfoodk8szoma05-admin"
+alias jenkins="kubectx haudigdevfoodk8sxolu01-admin && kubectl port-forward statefulset/jenkins 8080:8080 -n jenkins"
 
 # pyenv configuration
 eval "$(pyenv init -)"
@@ -120,3 +123,4 @@ export NVM_DIR="$HOME/.nvm"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+export PATH="/usr/local/sbin:$PATH"
