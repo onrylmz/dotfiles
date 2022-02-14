@@ -1,0 +1,13 @@
+<application>
+  <component name="FileTypeManager" version="17">
+    <extensionMap>
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="Jenkinsfile" type="Groovy" />
+      <mapping ext="gradle.kts" type="Kotlin" />
+      <mapping pattern=".trivyignore" type="PLAIN_TEXT" />
+      <mapping ext="ser" type="PLAIN_TEXT" />
+      <mapping ext="list" type="PLAIN_TEXT" />
+    </extensionMap>
+  </component>
+</application>
